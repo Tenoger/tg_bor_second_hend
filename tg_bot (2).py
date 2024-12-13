@@ -551,7 +551,6 @@ def handle_photo(message):
             f"Пользователь: @{message.chat.username}\n"
             f"Telegram ID: {user_id}\n"
             f"Адрес: {address}\n"
-            f"Название товара:  \n"
         )
 
         bot.send_photo(
@@ -560,7 +559,7 @@ def handle_photo(message):
             caption="Подтверждение оплаты"
         )
 
-        bot.send_message(chat_id, "Оплата подтверждена. Спасибо за покупку!")
+        bot.send_message(chat_id, "С вами скоро свяжется администратор бота. Спасибо за покупку!")
 
         bot.send_message(chat_id, "Вы вернулись в главное меню:")
         user_states[chat_id] = []
