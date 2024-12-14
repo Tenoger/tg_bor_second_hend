@@ -519,11 +519,9 @@ def show_products(message):
     subcategory = message.text
     user_states[chat_id]['subcategory'] = subcategory
 
-    # Удаляем клавиатуру после выбора подкатегории
     remove_markup = types.ReplyKeyboardRemove()
     bot.send_message(chat_id, "Теперь выбирайте товар.", reply_markup=remove_markup)
 
-    # Переходим к поиску товаров
     search_products_with_images(chat_id, category=user_states[chat_id]['category'], subcategory=subcategory)
 
 
