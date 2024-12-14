@@ -102,7 +102,7 @@ def back_page_5(callback):
     elif callback.data.startswith("buy_"):
         bot.answer_callback_query(callback.id, "Товар добавлен в корзину.")
         bot.send_message(chat_id,
-                         "Оплату производить по данным реквизитам:2201 7039 4832 0303\n Для завершения покупки сначала отправьте адрес и следующим сообщением скриншот оплаты.")
+                         "Оплату производить по данным реквизитам:2201 7039 4832 0303\nВ комментариях к переводу требуется указать название и стоимость товара\nДля завершения покупки сначала отправьте адрес и следующим сообщением скриншот оплаты.")
 
         user_states[chat_id] = ['waiting_for_address_and_payment']
     elif callback.data == "back":
@@ -551,7 +551,6 @@ def handle_photo(message):
             f"Пользователь: @{message.chat.username}\n"
             f"Telegram ID: {user_id}\n"
             f"Адрес: {address}\n"
-            f"Название товара:  \n"
         )
 
         bot.send_photo(
@@ -560,7 +559,7 @@ def handle_photo(message):
             caption="Подтверждение оплаты"
         )
 
-        bot.send_message(chat_id, "Оплата подтверждена. Спасибо за покупку!")
+        bot.send_message(chat_id, "С вами скоро свяжется администратор бота. Спасибо за покупку!")
 
         bot.send_message(chat_id, "Вы вернулись в главное меню:")
         user_states[chat_id] = []
